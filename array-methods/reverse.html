@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+
+        // reverse() muta el array original
+        const values1 = ['one', 'two', 'three']
+        const reversed = values1.reverse()
+
+        console.log('Los valores invertidos son', reversed)
+        console.log('¡OJO! Ha mutado el original...', values1)
+
+
+
+        // Error: los arrays y los objetos se pasan por REFERENCIA, no por VALOR
+        const values2 = ['first', 'second', 'third']
+        const valuesCopy = values2          // Paso por referencia, no es una copia sino una referencia al único valor que hay
+        valuesCopy.reverse()
+
+        console.log('Los valores invertidos son', valuesCopy)
+        console.log('¡OJO! NO ERA una copia...', values2)
+
+
+        // Copia real
+        const values3 = ['first', 'second', 'third']
+        const valuesCopy2 = [...values3]        // copia!
+        valuesCopy2.reverse()
+
+        console.log('Los valores invertidos son', valuesCopy2)
+        console.log('El original se mantiene inmuntable:', values3)
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

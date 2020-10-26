@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+
+        // Los arrays y los objetos se pasan por referencia, no por valor:
+        const people = [
+            { name: "Candice", age: 25 },
+            { name: "Tammy", age: 30 },
+            { name: "Allen", age: 49 },
+            { name: "Nettie", age: 21 },
+            { name: "Stuart", age: 17 }
+        ]
+
+        // Copias el array, no los objetos anidados!
+        const peopleCopy = [...people]
+
+        console.log('original:', people)
+        console.log('copia liviana:', peopleCopy)
+
+        // Esto muta los objetos tanto del array original como de la copia D:
+        peopleCopy[0].name = 'Charini'
+
+
+
+
+        // Deep copy:
+        const clonedPeople = JSON.parse(JSON.stringify(people))
+
+        clonedPeople[1].name = 'Disfrutón'
+
+        console.log('original:', people)
+        console.log('copia profunda:', clonedPeople)
+
+
+    </script>
+</body>
+
+</html>

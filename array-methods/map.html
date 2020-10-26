@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // .map()
+
+
+        // Example 1
+        const values0 = [2, 3, 4, 5, 6, 7, 8]
+        // const doubledValues0 = values0.map(elm => elm * 2)       // Retorno automático
+        const doubledValues0 = values0.map(elm => {
+            return elm * 2
+        })
+
+        console.log('Los valores duplicados son:', doubledValues0)
+
+
+
+
+        // Example 2
+        const cities = ['madrid', 'gijon', 'barcelona', 'bilbao']
+        // const capitalizedCities = cities.map(elm => elm.charAt(0).toUpperCase() + elm.substring(1))
+
+        const capitalizedCities = cities.map(elm => {
+            const firstUpperLetter = elm.charAt(0).toUpperCase()
+            const rest = elm.substring(1)
+            return firstUpperLetter + rest
+        })
+
+        console.log('Las ciudades en mayúscula son', capitalizedCities)
+
+
+
+
+
+
+        // Example 3
+        const students = [
+            {
+                name: "Tony Parker",
+                firstProject: 80,
+                secondProject: 75,
+                finalExam: 90
+            },
+            {
+                name: "Marc Barchini",
+                firstProject: 84,
+                secondProject: 65,
+                finalExam: 65
+            },
+            {
+                name: "Claudia Lopez",
+                firstProject: 45,
+                secondProject: 95,
+                finalExam: 99
+            },
+            {
+                name: "Alvaro Briattore",
+                firstProject: 82,
+                secondProject: 92,
+                finalExam: 70
+            },
+            {
+                name: "Isabel Ortega",
+                firstProject: 90,
+                secondProject: 32,
+                finalExam: 85
+            }
+        ]
+
+
+
+
+        // // 1.- Solo las notas finales
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+        //     return finalGrade
+        // })
+
+
+
+
+        // // 2.- Notas finales + nombre
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+        //     return {
+        //         name: elm.name,
+        //         finalGrade: finalGrade
+        //     }
+        // })
+
+
+
+
+        // // 3.- Toda la info + notas finales (manual)
+        // const finalDegrees = students.map(elm => {
+        //     const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+        //     const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+        //     const obj = {
+        //         name: elm.name,
+        //         firstProject: elm.firstProject,
+        //         secondProject: elm.secondProject,
+        //         finalExam: elm.finalExam,
+        //         finalGrade: finalGrade,
+        //      }
+        //      return obj
+        // })
+
+
+
+
+        // 4.- Toda la info + notas finales (spread operator)
+        const finalDegrees = students.map(elm => {
+            const projectsAvg = (elm.firstProject + elm.secondProject) / 2
+            const finalGrade = elm.finalExam * 0.6 + projectsAvg * 0.4
+            const obj = {
+                ...elm,         // Spread operator: removes block from objects
+                finalGrade: finalGrade,
+            }
+            return obj
+        })
+
+
+        console.log('Los alumnos con finales son:', finalDegrees)
+
+
+    </script>
+</body>
+
+</html>

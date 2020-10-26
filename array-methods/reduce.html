@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // .reduce()
+
+        const ages = [22, 3, 4, 22, 64, 32, 46, 45, 44]
+        const sumAges = ages.reduce((acc, elm) => {
+            console.log('ACUMULADO:', acc)
+            console.log('ITERADO:', elm)
+            return acc + elm
+        })
+        console.log('El sumatorio es:', sumAges)
+
+
+
+
+        const words = ['yay', 'dabadú', 'bogawunka']
+        const accStrings = words.reduce((acc, elm) => acc + elm)
+        console.log('Los stirngs concatenados son:', accStrings)
+
+
+
+
+
+        const people = [
+            { name: "Candice", age: 25 },
+            { name: "Tammy", age: 30 },
+            { name: "Allen", age: 49 },
+            { name: "Nettie", age: 21 },
+            { name: "Stuart", age: 17 }
+        ]
+
+        // // Error: elm es un objeto completo
+        // const sumAges2 = people.reduce((acc, elm) => acc + elm)
+        // console.log('La suma de las edades es', sumAges2)
+
+
+        // // Error: el acumulador no tiene edad!
+        // const sumAges2 = people.reduce((acc, elm) => acc.age + elm.age)
+        // console.log('La suma de las edades es', sumAges2)
+
+
+        // Yay!: 
+        const sumAges2 = people.reduce((acc, elm) => {
+            return acc + elm.age
+        }, 0)
+
+        console.log('La suma de las edades es', sumAges2)
+
+
+
+
+
+
+
+
+
+        const product = {
+            name: "AmazonBasics Apple Certified Lightning to USB Cable",
+            price: 7.99,
+            manufacter: "Amazon",
+            reviews:
+                [
+                    {
+                        user: "Pavel Nedved",
+                        comments: "It was really usefull, strongly recommended",
+                        rate: 4
+                    },
+                    {
+                        user: "Alvaro Trezeguet",
+                        comments: "It lasted 2 days",
+                        rate: 1
+                    },
+                    {
+                        user: "David Recoba",
+                        comments: "Awesome",
+                        rate: 5
+                    },
+                    {
+                        user: "Jose Romero",
+                        comments: "Good value for money",
+                        rate: 4
+                    },
+                    {
+                        user: "Antonio Cano",
+                        comments: "It broked really fast",
+                        rate: 2
+                    }
+                ]
+        }
+
+
+        const rateSum = product.reviews.reduce((acc, elm) => acc + elm.rate, 0)
+        console.log('La nota media del producto es', rateSum / product.reviews.length)
+
+
+
+
+    </script>
+</body>
+
+</html>
